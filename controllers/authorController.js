@@ -1,6 +1,6 @@
 const authorModel = require("../models/authorModel")
 
-const auth = require("../middleware/auth")
+// const auth = require("../middleware/auth")
 const jwt = require("jsonwebtoken")
 
 // const validate = require("../validate/")
@@ -54,7 +54,7 @@ const createAuthor = async function(req, res) {
             })
         }
         let authorCreated = await authorModel.create(author)
-        res.status(200).send({ status: true, data: authorCreated })
+        res.status(201).send({ status: true, data: authorCreated })
     } catch (err) {
         res.status(500).send({ msg: "Error", error: err.message })
     }

@@ -90,12 +90,13 @@ const getBlogs = async function(req, res) {
                     result.push(element);
                 }
             }
-            return res.status(200).send({ status: true, data: result });
         } else {
             return res
                 .status(404)
                 .send({ status: false, message: "No blogs found" });
         }
+        return res.status(200).send({ status: true, data: result });
+
     } catch (error) {
         res.status(500).send({ status: false, error: error.message });
     }
